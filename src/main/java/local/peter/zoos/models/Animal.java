@@ -8,20 +8,20 @@ import java.util.Set;
 
 @Entity
 @Table(name = "animal")
-public class Animals extends Auditable {
+public class Animal extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long animalid;
 
     @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("animal")
-    private Set<Zooanimals> zoo = new HashSet<>();
+    private Set<Zooanimal> zoo = new HashSet<>();
 
     private String animaltype;
 
-    public Animals() {}
+    public Animal() {}
 
-    public Animals(String animaltype) {
+    public Animal(String animaltype) {
         this.animaltype = animaltype;
     }
 
@@ -33,11 +33,11 @@ public class Animals extends Auditable {
         this.animalid = animalid;
     }
 
-    public Set<Zooanimals> getZooanimals() {
+    public Set<Zooanimal> getZooanimals() {
         return zoo;
     }
 
-    public void setZooanimals(Set<Zooanimals> zoo) {
+    public void setZooanimals(Set<Zooanimal> zoo) {
         this.zoo = zoo;
     }
 

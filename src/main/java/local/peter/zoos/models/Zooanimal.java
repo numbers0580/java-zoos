@@ -4,44 +4,43 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Table(name = "zooanimals")
-@IdClass(ZooanimalsId.class)
-public class Zooanimals extends Auditable implements Serializable {
+@IdClass(ZooanimalId.class)
+public class Zooanimal extends Auditable implements Serializable {
     @Id
     @ManyToOne
-    @JoinColumn(name = "animalid")
+    @JoinColumn(name = "animalid", nullable = false)
     @JsonIgnoreProperties("zoo")
-    private Animals animal;
+    private Animal animal;
 
     @Id
     @ManyToOne
     @JoinColumn(name = "zooid")
     @JsonIgnoreProperties("animal")
-    private Zoos zoo;
+    private Zoo zoo;
 
-    public Zooanimals() {}
+    public Zooanimal() {}
 
-    public Zooanimals(Animals animal, Zoos zoo) {
+    public Zooanimal(Animal animal, Zoo zoo) {
         this.animal = animal;
         this.zoo = zoo;
     }
 
-    public Animals getAnimals() {
+    public Animal getAnimal() {
         return animal;
     }
 
-    public void setAnimals(Animals animal) {
+    public void setAnimal(Animal animal) {
         this.animal = animal;
     }
 
-    public Zoos getZoo() {
+    public Zoo getZoo() {
         return zoo;
     }
 
-    public void setZoo(Zoos zoo) {
+    public void setZoo(Zoo zoo) {
         this.zoo = zoo;
     }
 
@@ -49,9 +48,9 @@ public class Zooanimals extends Auditable implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Zooanimals that = (Zooanimals) o;
+        Zooanimal that = (Zooanimal) o;
         //return Objects.equals(animals, that.animals) && Objects.equals(zoo, that.zoo);
-        return ((this.animal == null) ? 0 : this.getAnimals().getAnimalid()) == ((that.animal == null) ? 0 : that.getAnimals().getAnimalid()) &&
+        return ((this.animal == null) ? 0 : this.getAnimal().getAnimalid()) == ((that.animal == null) ? 0 : that.getAnimal().getAnimalid()) &&
                 ((this.zoo == null) ? 0 : this.getZoo().getZooid()) == ((that.zoo == null) ? 0 : that.getZoo().getZooid());
     }
 

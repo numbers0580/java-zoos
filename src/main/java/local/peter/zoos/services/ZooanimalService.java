@@ -1,4 +1,4 @@
 package local.peter.zoos.services;
 
-public interface ZooanimalsService {
+public interface ZooanimalService {
 }

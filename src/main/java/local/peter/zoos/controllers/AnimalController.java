@@ -1,7 +1,8 @@
 package local.peter.zoos.controllers;
 
-import local.peter.zoos.models.Animals;
-import local.peter.zoos.services.AnimalsService;
+import local.peter.zoos.models.Animal;
+import local.peter.zoos.services.AnimalService;
+import local.peter.zoos.view.AnimalCountZoos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,14 +14,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/animals")
-public class AnimalsController {
+public class AnimalController {
     @Autowired
-    AnimalsService animalsService;
+    AnimalService animalservice;
 
     //localhost:5280/animals/count
     @GetMapping(value = "/count", produces = "application/json")
     public ResponseEntity<?> listAllAnimals() {
-        List<Animals> critters = animalsService.findAllAnimals();
+        List<AnimalCountZoos> critters = animalservice.getAnimalCountZoos();
         return new ResponseEntity<>(critters, HttpStatus.OK);
     }
 }

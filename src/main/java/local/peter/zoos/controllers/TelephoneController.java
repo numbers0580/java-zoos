@@ -1,4 +1,4 @@
 package local.peter.zoos.controllers;
 
-public class TelephonesController {
+public class TelephoneController {
 }

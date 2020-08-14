@@ -10,20 +10,20 @@ import java.util.Set;
 
 @Entity
 @Table(name = "zoo")
-public class Zoos extends Auditable {
+public class Zoo extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long zooid;
 
     @OneToMany(mappedBy = "zoo", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("zoo")
-    private Set<Zooanimals> animal = new HashSet<>();
+    private Set<Zooanimal> animal = new HashSet<>();
 
     private String zooname;
 
     @OneToMany(mappedBy = "zoo", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("zoo")
-    private List<Telephones> telephones = new ArrayList<>();
+    private List<Telephone> telephone = new ArrayList<>();
 
     /*
     @ManyToMany()
@@ -32,12 +32,12 @@ public class Zoos extends Auditable {
     private Set<Animals> animals = new HashSet<>();
     */
 
-    public Zoos() {}
+    public Zoo() {}
 
-    public Zoos(Set<Zooanimals> animal, String zooname, List<Telephones> telephones) {
-        this.animal = animal;
+    public Zoo(String zooname) {
+        //this.animal = animal;
         this.zooname = zooname;
-        this.telephones = telephones;
+        //this.telephone = telephone;
     }
 
     public long getZooid() {
@@ -48,11 +48,23 @@ public class Zoos extends Auditable {
         this.zooid = zooid;
     }
 
-    public Set<Zooanimals> getZooanimals() {
+    /*
+    public Set<Zooanimal> getZooanimal() {
+        return animal;
+    }
+    */
+
+    public Set<Zooanimal> getAnimal() {
         return animal;
     }
 
-    public void setZooanimals(Set<Zooanimals> animal) {
+    /*
+    public void setZooanimal(Set<Zooanimal> animal) {
+        this.animal = animal;
+    }
+    */
+
+    public void setAnimal(Set<Zooanimal> animal) {
         this.animal = animal;
     }
 
@@ -64,11 +76,11 @@ public class Zoos extends Auditable {
         this.zooname = zooname;
     }
 
-    public List<Telephones> getTelephones() {
-        return telephones;
+    public List<Telephone> getTelephone() {
+        return telephone;
     }
 
-    public void setTelephones(List<Telephones> telephones) {
-        this.telephones = telephones;
+    public void setTelephone(List<Telephone> telephone) {
+        this.telephone = telephone;
     }
 }

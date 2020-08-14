@@ -1,4 +1,4 @@
 package local.peter.zoos.controllers;
 
-public class ZooanimalsController {
+public class ZooanimalController {
 }

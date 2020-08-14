@@ -1,13 +1,12 @@
 package local.peter.zoos.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "telephone")
-public class Telephones extends Auditable {
+public class Telephone extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long phoneid;
@@ -18,12 +17,12 @@ public class Telephones extends Auditable {
 
     @ManyToOne
     @JoinColumn(name = "zooid")
-    @JsonIgnoreProperties("telephones")
-    private Zoos zoo;
+    @JsonIgnoreProperties("telephone")
+    private Zoo zoo;
 
-    public Telephones() {}
+    public Telephone() {}
 
-    public Telephones(String phonetype, String phonenumber, Zoos zoo) {
+    public Telephone(String phonetype, String phonenumber, Zoo zoo) {
         this.phonetype = phonetype;
         this.phonenumber = phonenumber;
         this.zoo = zoo;
@@ -53,11 +52,11 @@ public class Telephones extends Auditable {
         this.phonenumber = phonenumber;
     }
 
-    public Zoos getZoos() {
+    public Zoo getZoos() {
         return zoo;
     }
 
-    public void setZoos(Zoos zoo) {
+    public void setZoos(Zoo zoo) {
         this.zoo = zoo;
     }
 }
