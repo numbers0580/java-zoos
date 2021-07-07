@@ -17,7 +17,7 @@ INSERT INTO zoo (zooid, zooname, createdby, createddate, lastmodifiedby, lastmod
                 (4, 'San Antonio Zoo', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP),
                 (5, 'Smithsonian National Zoo', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP);
 
-INSERT INTO telephone(phoneid, phonetype, phonenumber, zooid, createdby, createddate, lastmodifiedby, lastmodifieddate)
+INSERT INTO telephone (phoneid, phonetype, phonenumber, zooid, createdby, createddate, lastmodifiedby, lastmodifieddate)
          VALUES (1, 'main', '555-555-5555', 1, 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP),
                 (2, 'education', '555-555-1234', 1, 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP),
                 (3, 'membership', '555-555-4321', 1, 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP),
